@@ -17,12 +17,12 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create author" do
     assert_difference("Author.count") do
-      post authors_url, params: { author: { birth: @author.birth, name: @author.name } }
+      post authors_url, params: { author: { birth: @author.birth, name: "Unique Author #{SecureRandom.hex(4)}" } }
     end
 
     assert_redirected_to author_url(Author.last)
   end
-
+  
   test "should show author" do
     get author_url(@author)
     assert_response :success

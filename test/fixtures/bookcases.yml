@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  limit: 1
+  limit: 10
 
 two:
-  limit: 1
+  limit: 10
