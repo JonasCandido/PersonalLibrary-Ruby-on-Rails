@@ -4,8 +4,8 @@ class Book < ApplicationRecord
   validate :is_the_bookcase_on_limit?
   validates :title, uniqueness: true
 
-  def is_the_bookcase_on_limit?()
-    if((self.bookcase != nil) && (self.bookcase.books.count >= self.bookcase.limit))
+  def is_the_bookcase_on_limit?
+    if (self.bookcase != nil) && (self.bookcase.books.count >= self.bookcase.limit)
       errors.add(:base, "Bookcase filled.")
     end
   end

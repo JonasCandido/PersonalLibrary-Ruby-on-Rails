@@ -65,6 +65,6 @@ class BookcasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bookcase_params
-      params.expect(bookcase: [:name, :limit ])
+      params.expect(bookcase: [ :name, :limit ])
     end
 end
