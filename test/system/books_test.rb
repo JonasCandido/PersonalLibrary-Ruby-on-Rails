@@ -3,6 +3,8 @@ require "application_system_test_case"
 class BooksTest < ApplicationSystemTestCase
   setup do
     @book = books(:one)
+    @author = authors(:one)
+    @bookcase = bookcases(:one)
   end
 
   test "visiting the index" do
@@ -14,11 +16,11 @@ class BooksTest < ApplicationSystemTestCase
     visit books_url
     click_on "New book"
 
-    fill_in "Author", with: @book.author_id
-    fill_in "Bookcase", with: @book.bookcase_id
+    select @author.name, from: "book_author_id", match: :first
+    select @bookcase.name, from: "book_bookcase_id", match: :first
     fill_in "Comment", with: @book.comment
     fill_in "Rating", with: @book.rating
-    fill_in "Title", with: @book.title
+    fill_in "Title", with: "#{@book.title} #{SecureRandom.hex(4)}"
     click_on "Create Book"
 
     assert_text "Book was successfully created"
@@ -29,8 +31,8 @@ class BooksTest < ApplicationSystemTestCase
     visit book_url(@book)
     click_on "Edit this book", match: :first
 
-    fill_in "Author", with: @book.author_id
-    fill_in "Bookcase", with: @book.bookcase_id
+    select @book.author.name, from: "book_author_id", match: :first
+    select @book.bookcase.name, from: "book_bookcase_id", match: :first
     fill_in "Comment", with: @book.comment
     fill_in "Rating", with: @book.rating
     fill_in "Title", with: @book.title

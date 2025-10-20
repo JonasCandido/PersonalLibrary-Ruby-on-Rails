@@ -15,7 +15,7 @@ class AuthorsTest < ApplicationSystemTestCase
     click_on "New author"
 
     fill_in "Birth", with: @author.birth
-    fill_in "Name", with: @author.name
+    fill_in "Name", with: "Author #{SecureRandom.hex(4)}"
     click_on "Create Author"
 
     assert_text "Author was successfully created"
