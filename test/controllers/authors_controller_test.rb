@@ -22,7 +22,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to author_url(Author.last)
   end
-  
+
   test "should show author" do
     get author_url(@author)
     assert_response :success
