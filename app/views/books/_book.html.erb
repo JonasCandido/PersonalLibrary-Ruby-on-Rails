@@ -15,13 +15,13 @@
   </p>
 
   <p>
-    <strong>Bookcase:</strong>
-    <%= book.bookcase.name %>
+      <strong>Bookcase:</strong>
+      <%= book.bookcase&.name || "No bookcase" %>
   </p>
 
   <p>
-    <strong>Author:</strong>
-    <%= book.author.name %>
+      <strong>Author:</strong>
+      <%= book.author&.name || "No author" %>
   </p>
-
+  
 </div>
